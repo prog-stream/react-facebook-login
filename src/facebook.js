@@ -39,6 +39,7 @@ class FacebookLogin extends React.Component {
     onClick: PropTypes.func,
     onFailure: PropTypes.func,
     render: PropTypes.func.isRequired,
+    pathToSdk: PropTypes.string,
   };
 
   static defaultProps = {
@@ -140,7 +141,7 @@ class FacebookLogin extends React.Component {
       let js = element;
       if (d.getElementById(id)) { return; }
       js = d.createElement(s); js.id = id;
-      js.src = `https://connect.facebook.net/${language}/sdk.js`;
+      js.src = this.props.pathToSdk
       fjs.parentNode.insertBefore(js, fjs);
     })(document, 'script', 'facebook-jssdk');
   }
